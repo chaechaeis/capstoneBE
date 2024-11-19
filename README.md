@@ -1,6 +1,4 @@
-# 프로젝트 아키텍쳐
 
-![image](https://github.com/user-attachments/assets/9386b6fe-a1d6-4c04-b5a0-c44a882bf8ee)
 
 # 사용 기술
 - Django
@@ -9,7 +7,6 @@
 - Docker
 - PostgreSQL
 
-# UPCY 백엔드 환경 구성 방법
 
 ## 0. pipx 설치 
 
@@ -57,11 +54,6 @@ cd path/to/project
 poetry config virtualenvs.in-project true
 poetry install --no-root
 ```
-
-> 따로 가상환경 폴더를 설정하지 않은 경우, ubuntu 기준 다음과 같은 경로에 설치됩니다. 해당 경로를 인터프리터 경로로 잡아주시면 됩니다.
-> - Virtualenv location: /home/USERNAME/.local/share/virtualenvs/UPCY_BE-rtTVnQO9
-
-> 백엔드 팀원에게 .env 파일을 제공해달라고 요청해주세요. 해당 .env 파일을 프로젝트 루트 디렉토리에 넣어주시면 됩니다.
 
 ## 3. 가상환경 실행
 ```shell

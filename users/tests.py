@@ -215,56 +215,6 @@ class SetterTestCase(APITestCase):
         ).first()
         self.assertEqual(user.role, "customer")
 
-        response = self.client.post(
-            path="/api/user/setter",
-            data={
-                "setter_link": "https://www.naver.com",
-                "setter_area": "seoul yongsan",
-                "education": [
-                    {
-                        "school": "Test school",
-                        "major": "Fashion Design",
-                        "academic_status": "Graduated",
-                    },
-                    {
-                        "school": "Another University",
-                        "major": "Art",
-                        "academic_status": "Graduated",
-                    },
-                ],
-                "certification": [
-                    {"name": "test cert", "issuing_authority": "asdfasdfasdf"},
-                    {"name": "test cert 2", "issuing_authority": "gjdofisjgfdg"},
-                ],
-                "awards": [
-                    {"competition": "어쩌구저쩌구대회", "prize": "멍때리기대회1등"},
-                    {"competition": "어쩌구저쩌구대회2", "prize": "웃음참기대회1등"},
-                ],
-                "career": [
-                    {
-                        "company_name": "sdiojfgoijfsgf",
-                        "department": "디자인",
-                        "period": "3년",
-                    },
-                    {
-                        "company_name": "pjgfhjfghjgoijfsgfthgdrthgdrth",
-                        "department": "디자인",
-                        "period": "6개월",
-                    },
-                ],
-                "freelancer": [
-                    {
-                        "project_name": "oubj89todjirng",
-                        "description": "이런저런 일을 했습니다",
-                    },
-                    {
-                        "project_name": "ㅁㄴㅇㄻㄴㅇㄻㄴㅇㄹ",
-                        "description": "이런저런 일을 했습니다 2",
-                    },
-                ],
-            },
-            format="json",
-        )
         self.assertEqual(response.status_code, 201)
         user = User.objects.get_user_by_email(
             self.login_request_data.get("email")

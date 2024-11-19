@@ -26,6 +26,7 @@ class UserSignUpSerializer(serializers.ModelSerializer):
             "nickname",
             "agreement_terms",
             "introduce",
+            "prefer_style"
         ]
         extra_kwargs = {
             "email": {"required": True},
@@ -34,4 +35,5 @@ class UserSignUpSerializer(serializers.ModelSerializer):
             "agreement_terms": {"required": True},
             "nickname": {"required": False},
             "introduce": {"required": False},
+            "prefer_style" : {"required":False},
         }

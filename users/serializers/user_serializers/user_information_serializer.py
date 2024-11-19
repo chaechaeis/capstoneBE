@@ -19,6 +19,7 @@ class UserInformationSerializer(serializers.ModelSerializer):
             "introduce",
             "is_active",
             "role",
+            "prefer_stylle"
         ]
 
     def get_profile_image_url(self, obj):

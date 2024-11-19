@@ -54,7 +54,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     nickname = models.CharField(max_length=20, null=True, blank=True)  # 사용자 닉네임
     agreement_terms = models.BooleanField(
         default=False
-    )  # 선택 약관 동의 여부 -> 필수 약관은 프론트에서 알아서 처리한다고 합니다
+    )  # 선택 약관 동의 여부
     address = models.CharField(
         max_length=255, null=True, blank=True
     )  # 사용자 기본 주소
@@ -79,15 +79,14 @@ class User(AbstractBaseUser, PermissionsMixin):
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
     objects = UserManager()
+    prefer_style = models.charField(
+        max_length = 10,
+        choices = [
+            ("hip","힙"),
+            ("feminine", "페미닌"),
+        ],
+    )
 
     class Meta:
         db_table = "users"
 
-
-class UserPreferStyle(models.Model):
-    # 사용자의 선호 스타일 저장 테이블
-    user = models.ForeignKey("users.User", on_delete=models.CASCADE)
-    prefer_style = models.CharField(max_length=100)
-
-    class Meta:
-        db_table = "user_prefer_style"

@@ -1,7 +1,7 @@
 from rest_framework.permissions import BasePermission
 
 
-class IsReformer(BasePermission):
+class IsSetter(BasePermission):
     """
     Allows access only authenticate and "Setter" users.
     """
@@ -14,7 +14,7 @@ class IsReformer(BasePermission):
         )
 
 
-class IsCustomer(BasePermission):
+class IsSeeker(BasePermission):
     """
     Allows access only authenticate and "Seeker" users.
     """
